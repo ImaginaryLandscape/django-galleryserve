@@ -1,15 +1,6 @@
 from django.db import models
 import PIL
 from PIL import ImageOps
-from django.core.files.storage import FileSystemStorage
-
-class Overwrite(FileSystemStorage):
-    ''' Custom File Storage method to overwrite images rather than append _ '''
-    def get_available_name(self, name):
-        if self.exists(name):
-            self.delete(name)
-        return name
-
 
 class Gallery(models.Model):
     title = models.CharField(max_length=200)
@@ -35,8 +26,7 @@ class Gallery(models.Model):
 
 
 class Item(models.Model):
-    image = models.ImageField(blank=True, upload_to='galleryserve/images', 
-        storage=Overwrite())
+    image = models.ImageField(blank=True, upload_to='galleryserve/images')
     gallery = models.ForeignKey(Gallery, related_name='items')
     alt = models.CharField(max_length=100, blank=True,
         help_text="This will be used for the image alt attribute")
