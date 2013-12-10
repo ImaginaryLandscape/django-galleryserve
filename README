@@ -13,7 +13,7 @@ file to exclude certain fields from appearing in the admin.
 Template tag example:
 {% load gallerytags %}
 
-{% get_gallery "name" %}
+{% get_gallery name %}
 {% for slide in gallery %}
 <div title="{{ slide.title }} - {{ slide.credit }}">
 {% if slide.url %}<a href="{{ slide.url }}">{% endif %}
