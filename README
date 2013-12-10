@@ -1,8 +1,30 @@
 Dependencies:
 PIL
 
+To install:
+pip install galleryserve
+
+Add 'galleryserve' to INSTALLED_APPS
+
+Configuration Options:
 GALLERYSERVE_EXCLUDE_FIELDS - This can be added as a list in your settings.py 
 file to exclude certain fields from appearing in the admin.
+
+Template tag example:
+{% load gallerytags %}
+
+{% get_gallery "name" %}
+{% for slide in gallery %}
+<div title="{{ slide.title }} - {{ slide.credit }}">
+{% if slide.url %}<a href="{{ slide.url }}">{% endif %}
+{% if slide.image %}<img src="{{ slide.image.url }}" alt="{{ slide.alt }}" />{% endif %}
+{% if slide.url %}</a>{% endif %}
+{% if slide.video_url %}<a href="{{ slide.video_url }}">{{ slide.title }}</a>{% endif %}
+{{ slide.title }} - {{ slide.credit }}<br />
+{{ slide.content|safe }}
+</div>
+{% endfor %}
+
 
 Changes in 0.1.5 - 06-27-13
 Allow for gallery title to be passed in as context variable instead of always
