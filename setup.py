@@ -3,14 +3,14 @@ from setuptools import setup, find_packages
 
 setup(
     name='galleryserve',
-    version='0.1.5',
+    version='0.1.6',
     description='Adapted from imageserve to fit broader gallery needs such as video embedding and content for controls.',
 
     author='Imaginary Landscape',
     author_email='dbertrand@imagescape.com',
 
     install_requires=(
-        'PIL',
+        'Pillow',
     ),
 
     zip_safe=False,
