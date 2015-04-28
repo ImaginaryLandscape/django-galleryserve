@@ -12,7 +12,7 @@ setup(
     install_requires=(
         'Pillow',
     ),
-
+    url='https://github.com/ImaginaryLandscape/django-galleryserve',
     zip_safe=False,
     include_package_data=True,
     packages=find_packages(exclude=('ez_setup', 'examples', 'tests')),
