@@ -21,6 +21,7 @@ class GalleryserveNode(Node):
             else:
                 items = Item.objects.filter(gallery__title = gallery.title)
             context['gallery'] = items
+            context['gallery_object'] = gallery
         except:
             pass
         return ''
