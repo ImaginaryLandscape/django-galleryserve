@@ -27,7 +27,11 @@ class Gallery(models.Model):
 
 class Item(models.Model):
     image = models.ImageField(blank=True, upload_to='galleryserve/images')
-    gallery = models.ForeignKey(Gallery, related_name='items')
+    gallery = models.ForeignKey(
+        Gallery,
+        related_name='items',
+        on_delete=models.CASCADE,
+    )
     alt = models.CharField(max_length=100, blank=True,
         help_text="This will be used for the image alt attribute")
     title = models.CharField(max_length=100, blank=True,
