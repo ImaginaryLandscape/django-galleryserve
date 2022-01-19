@@ -14,15 +14,15 @@ class Gallery(models.Model):
     resize = models.BooleanField(default=True,
         help_text="If selected, the dimensions specified above will be used"
         " to scale and crop the uploaded image")
-    quality = models.IntegerField(u'Image Quality', default=85, 
-        help_text="An integer between 0-100. 100 will result in the largest " 
+    quality = models.IntegerField('Image Quality', default=85,
+        help_text="An integer between 0-100. 100 will result in the largest "
         "file size.")
     class Meta:
         ordering = ('title',)
         verbose_name_plural = 'galleries'
 
     def __unicode__(self):
-        return u'%s' %(self.title)
+        return '{}'.format(self.title)
 
 
 class Item(models.Model):
@@ -51,7 +51,7 @@ class Item(models.Model):
         ordering = ('sort',)
 
     def __unicode__(self):
-        return u'%s' %(self.alt)
+        return '{}'.format(self.alt)
 
     def save(self):
         super(Item, self).save()

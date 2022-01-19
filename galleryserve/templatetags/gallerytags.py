@@ -30,5 +30,5 @@ class GalleryserveNode(Node):
 def get_gallery(parser, token):
     bits = token.contents.split()
     if len(bits) != 2:
-        raise TemplateSyntaxError, "get_gallery takes exactly 1 argument"
+        raise TemplateSyntaxError("get_gallery takes exactly 1 argument")
     return GalleryserveNode(bits[1])
