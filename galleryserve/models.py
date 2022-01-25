@@ -38,7 +38,7 @@ class Item(models.Model):
         help_text="This will be used for the image or content title attribute")
     credit = models.CharField(max_length=200, blank=True,
         help_text="Use this field to credit the image or content creator")
-    video_url = models.URLField('video url', blank=True, 
+    video_url = models.URLField('video url', blank=True,
         help_text="Enter the url of the video to be embedded")
     url = models.CharField('target url', blank=True, max_length=200,
         help_text="URL to which the image will be linked.")

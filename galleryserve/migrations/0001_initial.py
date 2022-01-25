@@ -38,7 +38,7 @@ class Migration(migrations.Migration):
                 ('url', models.CharField(help_text=b'URL to which the image will be linked.', max_length=200, verbose_name=b'target url', blank=True)),
                 ('content', models.TextField(help_text=b'Use this field to add html content associated with the item', blank=True)),
                 ('sort', models.IntegerField(default=0, help_text=b'Items will be displayed in their sort order')),
-                ('gallery', models.ForeignKey(related_name='items', to='galleryserve.Gallery')),
+                ('gallery', models.ForeignKey(related_name='items', to='galleryserve.Gallery', on_delete=models.CASCADE)),
             ],
             options={
                 'ordering': ('sort',),

@@ -10,9 +10,9 @@ class ItemInline(admin.StackedInline):
         exclude = settings.GALLERYSERVE_EXCLUDE_FIELDS
     except:
         fieldsets = (
-            (None, {'fields': (('image', 'alt', 'sort'), 
+            (None, {'fields': (('image', 'alt', 'sort'),
             ('url', 'video_url'), ('title', 'credit'), 'content')}),
-        )        
+        )
 
 class GalleryAdmin(admin.ModelAdmin):
     inlines = [
@@ -21,7 +21,7 @@ class GalleryAdmin(admin.ModelAdmin):
     list_display = ('title',)
     search_fields = ['title',]
     fieldsets = (
-        (None, {'fields': (('title'), 'height', 'width', 'random', 'resize', 
+        (None, {'fields': (('title'), 'height', 'width', 'random', 'resize',
                 'quality')}),
     )
 
