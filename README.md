@@ -1,16 +1,20 @@
-Dependencies:
-PIL
+# deprecate_cmsplugin_filer
+A django app for serving collections of images or videos
 
-To install:
-pip install galleryserve
+## Dependencies:
+Pillow
+
+## To install:
+    pip install galleryserve
 
 Add 'galleryserve' to INSTALLED_APPS
 
-Configuration Options:
-GALLERYSERVE_EXCLUDE_FIELDS - This can be added as a list in your settings.py 
+## Configuration Options:
+**GALLERYSERVE_EXCLUDE_FIELDS** - This can be added as a list in your settings.py 
 file to exclude certain fields from appearing in the admin.
 
-Template tag example:
+## Template tag example:
+```
 {% load gallerytags %}
 
 {% get_gallery name %}
@@ -24,7 +28,11 @@ Template tag example:
 {{ slide.content|safe }}
 </div>
 {% endfor %}
+```
 
+## Change log:
+Changes in 0.2.0 - 05-25-22
+Updated build process for py3 compatible app
 
 Changes in 0.1.5 - 06-27-13
 Allow for gallery title to be passed in as context variable instead of always
