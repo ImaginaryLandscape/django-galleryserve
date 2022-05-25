@@ -1,4 +1,4 @@
-# deprecate_cmsplugin_filer
+# galleryserve
 A django app for serving collections of images or videos
 
 ## Dependencies:
