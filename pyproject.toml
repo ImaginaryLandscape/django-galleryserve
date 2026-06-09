@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "galleryserve"
-version = "0.2.2"
+version = "0.2.3"
 description = "Adapted from imageserve to fit broader gallery needs such as video embedding and content for controls."
 homepage = "https://github.com/ImaginaryLandscape/django-galleryserve"
 readme = "README.md"
@@ -8,8 +8,8 @@ authors = ["Imagescape <info@imagescape.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.7"
-Pillow = "^9.1.1"
+python = ">=3.7,<3.15"
+Pillow = ">=9.1.1,<13.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

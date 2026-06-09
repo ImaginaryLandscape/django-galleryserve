@@ -2,6 +2,11 @@ from django.db import models
 import PIL
 from PIL import ImageOps
 
+try:  # for Pillow >= 10.0.0
+    ANTIALIAS = PIL.Image.Resampling.LANCZOS
+except AttributeError:
+    ANTIALIAS = PIL.Image.ANTIALIAS
+
 class Gallery(models.Model):
     title = models.CharField(max_length=200)
     height = models.IntegerField(blank=True, default=600,
@@ -20,6 +25,9 @@ class Gallery(models.Model):
     class Meta:
         ordering = ('title',)
         verbose_name_plural = 'galleries'
+
+    def __str__(self):
+        return '{}'.format(self.title)
 
     def __unicode__(self):
         return '{}'.format(self.title)
@@ -50,11 +58,14 @@ class Item(models.Model):
     class Meta:
         ordering = ('sort',)
 
+    def __str__(self):
+        return '{}'.format(self.alt)
+
     def __unicode__(self):
         return '{}'.format(self.alt)
 
-    def save(self):
-        super(Item, self).save()
+    def save(self, *args, **kwargs):
+        super(Item, self).save(*args, **kwargs)
         if self.image:
             filename = self.image.path
             image = PIL.Image.open(filename)
@@ -68,6 +79,5 @@ class Item(models.Model):
                 except:
                     height = 600
                 size=(width, height)
-                image = ImageOps.fit(image, size, PIL.Image.ANTIALIAS)
+                image = ImageOps.fit(image, size, ANTIALIAS)
             image.save(filename, quality=self.gallery.quality)
-
